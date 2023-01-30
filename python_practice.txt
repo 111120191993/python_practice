@@ -1,0 +1,174 @@
+print('Hello World')
+
+print('   /|')
+print('  / |')
+print(' /  |')
+print('/___|')
+
+#===================================
+# variables and data types
+#====================================
+character_name= 'John'
+character_age= '35'
+print('There once was a man named George ')
+print('he was 70 years old.  ')
+print('He really like the name George ')
+print("but didn't like being 70. ")
+
+character_name= 'John'
+character_age= '35'
+
+#===============================
+# Data types- string,integer, float, boolean
+# strings are basically a plain text
+# \n- gives new line
+# \"- saying python to use quotation mark
+# + - to concate
+# isupper()- gives the result as TRUE OR FALSE
+# len()- gives number of characters
+# strings gets indexed starting with 0.
+# itc[0]- gives 1 as a result
+# ==============================
+
+print("Information\nTech")
+
+phrase = 'ITC'
+print(phrase)
+print("Welcome to " + phrase)
+print(phrase.lower())
+print(phrase.upper())
+print(phrase.isupper())
+print(len(phrase))
+print(phrase[0])
+print(phrase[2])
+
+# =====================
+# index() - returns the value of the index
+# replace()- need to give 2 parameters
+#=========================
+
+phrase = "welcome itc"
+print(phrase.index("c"))
+print(phrase.index("ome"))
+print(phrase.replace('welcome itc','WELCOME ITC'))
+
+#===========================
+# working with numbers
+# can various perform arithmetic operations
+# modulus %- gives us the reminder
+# abs()- gives absolute value
+# pow()
+# max()- gives larger number
+# min()- gives smaller
+# round()- rounds the given value
+# floor()- ignores the decimal point
+# ceil()- rounds off the value
+# sqrt- gives the square root value
+#============================
+
+print(9)
+print(4+7.9)
+print(10 % 3)
+
+my_num= -6
+print(abs(my_num))
+print(pow(4, 6))
+print(round(3.56))
+
+from math import *
+print(floor(3.7))
+print(ceil(3.7))
+print(sqrt(49))
+
+#==========================
+# input(---prompt) Getting input from the users
+#==========================
+
+name = input('Enter your name: ')
+age = input('Enter your age: ')
+print("Hello " + name + "! You are " + age)
+
+#===============================
+# Building a basic calculator
+# Int()- integer is a whole number and it cannot have decimal apparently
+# float - for decimal numbers
+#=================================
+
+num1 = input('Enter first number: ')
+num2 = input('Enter second number: ')
+result = int(num1) + int(num2)
+print(result)
+
+#===================================
+# Mad libs game
+#===================================
+
+color = input('Enter a color: ')
+plural_noun= input("Enter the plural_noun: ")
+celebrity = input("Enter the celebrity: ")
+print("Roses are " + color)
+print(plural_noun + "  are blue")
+print("I love " + celebrity)
+
+#==================================
+# Lists - structure to store lists of information and are mutable
+# use [] to store lists
+# can contain various data types also contain multiple values
+# access elements based on their indexes
+# can modify the elements in the list
+#=====================================
+
+friends = ["Larshan", "Sukanya", "Bub"]
+print(friends[1])
+print(friend[1:])
+
+#======================================
+# list functions
+# extend()- appends the given 2 list and extends it combined
+# append()- appends another value to the end of the list
+# insert()- takes 2 parameters. 1. index where we want to insert an item 2. element that we want to add
+# remove() - removes the element
+# clear() - empties entire list
+# pop() - removes last element in the list
+# sort()-  sorts the values in ascending order
+# reverse()- reverses the order of the list
+# copy()-
+
+lucky_numbers= [4,6,9,7,6,89]
+friends= ['larshan', 'sukanya', 'bub', 'gig', 'henry', 'gig']
+friends.extend(lucky_numbers)
+friends.append('ray')
+friends.insert(1, 'mini')
+friends.remove('ray')
+friends.clear()
+friends.pop()
+friends.sort()
+print(friends)
+print(friends.index('bub'))
+print(friends.count('gig'))
+friends_2= friends.copy()
+
+# ======================================
+# Tuples - uses () to store elements. they are immutable-cannot be changed or modified
+# ================================
+
+coordinates= (4, 5)
+print(coordinates[0])
+# =================================
+# Functions - is a collection of code which performs specific task(user defined function)
+# def function_name(): , then print and then call.
+# parameter- is a piece of information we give it to the functions
+# ====================================
+
+def say_hi(name,age):
+    print("Hello " + name + "you are " + age)
+say_hi('sukanya', "20")
+
+# ===========================================
+# Return statement- returns information from python function
+#
+def cube(num):
+    num*num*num
+
+cube(3)
+
