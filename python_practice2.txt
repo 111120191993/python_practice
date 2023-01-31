@@ -1,0 +1,179 @@
+#=================================================
+# if statements - special structure in python where we can make our program to make decisions
+# else- its like otherwise
+# elif(elseif)-
+# ==================================================
+
+is_female = True
+is_tall = True
+
+if is_female or is_tall:
+    print("You are a female or tall or both")
+else:
+    print('You are neither female or tall')
+
+is_female = True
+is_tall = True
+
+if is_female and is_tall:
+    print("You are a female or tall or both")
+else:
+    print('You are neither female or tall')
+
+if is_female and is_tall:
+    print("You are a female or tall or both")
+elif is_male and not(is_tall):
+    print('You are a short female')
+elif not(is_female) and is_tall:
+    print("You are not a female but you are tall")
+else:
+    print('You are neither female or tall')
+
+#===================================================
+# if statements and comparisons: =,>=,<=,==,!=,<,>
+#===================================================
+
+def max_num(num1, num2, num3):
+    if num1>=num2 and num1>=num3:
+        return num_1
+    elif num2>=num1 and num2>=num3:
+        return num2
+    else:
+        return num3
+print(max_num(3,40,60))
+
+#===================================================
+# Building a better calculator
+#==================================================
+
+num1 = float(input("Enter first number: "))
+op = input("Enter operator: ")
+num2 = float(input("Enter second number: "))
+
+if op == "+":
+    print(num1+num2)
+elif op == '-':
+    print(num1-num2)
+elif op == '/':
+    print(num1/num2)
+else:
+    print('Invalid operator')
+
+#======================================================
+# Dictionaries- Allows to store information in a key-value pairs
+# use {}- define a key : and the corresponding value
+# all the keys must be unique
+# use .get(' ') - pass name of the key inside the get fun
+# ========================================================
+
+month_conversions = {
+    'Jan': 'january',
+    'Feb': 'february'
+}
+print(month_conversions['Jan'])
+
+#================================
+# While loop- executes block of code multiple times loop through the particular code as long as its true
+# i+=1 - shorthand
+# ==============================
+
+i=1
+while i <= 10:
+    print(i)
+    i = i+1
+print('loop done')
+
+# ======================================
+# Building guessing game
+#=====================================
+
+secret_word = 'python'
+guess = ''
+guess_count = 0
+guess_limit = 3
+out_of_guesses = False
+
+while guess != secret_word and not(out_of_guesses):
+    if guess_count < guess_limit:
+        guess = input('Enter guess: ')
+        guess_count += 1
+if out_of_guesses:
+    print('OUT OF GUESSES, YOU LOST! ')
+else:
+    print('You win!')
+print('You win')
+
+#===============================================
+# for loop- special type of loop which allows us to loop through different types of values
+# The for statement is used to iterate over the elements of a sequence (such as a string,
+# tuple or list) or other iterable object:
+# ================================================
+
+
+for letter in 'Python tutorial':
+    print(letter)
+
+friends= ['jim', 'kay', 'ray']
+for i in friends:
+    print(i)
+
+friends= ['jim', 'kay', 'ray']
+for i in range(len(friends)):
+    print(i[index])
+
+#======================================
+# Exponent function-takes certain number and raise it to specific value
+#===================================================================
+def raise_to_power(base_num, pow_num):
+    result = 1
+    for i in range(pow_num):
+        result = result*base_num
+        return result
+print (raise_to_power(3,4))
+
+#=====================================================
+# 2D & Nested loops
+# nested for loop- for loop inside a for loop
+#=============================================
+
+number_grid = [
+    [1,2,3],
+    [5,6,7],
+    [8,9,0]
+]
+print(number_grid[0][0])
+
+for row in number_grid:
+    for col in row:
+        print(col)
+
+#============================================
+# Lambda functions- a simple 1-line function. they dont use def or any keywords. its implicit
+
+#===========================================
+# to double the value
+lambda x: 2 * x
+# to find max value
+mx = lambda x, y: x if x > y else y
+print (mx(8,5))
+
+# Map function-apply same function to each element of a sequence
+# Return the modified list
+# need not use a lambda function inside map function
+
+n = [4, 3, 2, 1]
+print(list(map(lambda x: x**2, n)))
+
+# filter function-filter items out of a sequence
+# with condition
+
+n = [4, 3, 2, 1]
+print(list(filter(lambda x: x>2, n)))
+
+# reduce()- applies same operation to items of a sequence
+# uses result of operation as 1st param of next operation
+# returns an item, not a list
+
+n = [4, 3, 2, 1]
+print(reduce(lambda x,y: x*y, n))
+
