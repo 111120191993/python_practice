@@ -1,0 +1,99 @@
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import numpy as np
+import functools
+from numpy import genfromtxt
+import csv
+import pandas as pd
+
+def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('PyCharm')
+    emp_id = np.arange(1, 11)
+    sal = np.random.randint(10000, 20000, 10)
+    print(emp_id)
+    print(sal)
+    print(np.mean(sal))
+    print(np.sum(sal))
+
+    print(emp_id + sal)  # add emp_id[0] with sal[0]
+    print(np.add(emp_id, 11))  # adds 11 to every item in an array
+    print(emp_id[0:6:2])  # slicing can be used on np
+    print(emp_id.size)  # counts the no.of items in an array
+
+    # np.where- filters with the specified condition.
+    idx = (np.where(emp_id > 5))  # returns index og the value that matches the condition
+    print(emp_id[idx])  # pass index to get values
+
+    new_emp_id = np.arange(11, 16)
+    print(new_emp_id)
+    emp_id = np.append(emp_id, new_emp_id)  #
+    print(emp_id)
+
+    print(np.sort(sal))  # sorts an array in ascending order
+    print(np.sort(sal)[::-1])  # desc order
+
+    id1 = genfromtxt(r'C:\Users\sukan\OneDrive\Desktop\n.csv',delimiter=',')
+    print(id1)
+
+    with open(r'C:\Users\sukan\OneDrive\Desktop\n.csv') as f:
+        id2 = list(csv.reader(f, delimiter=','))
+
+    print(id2)
+
+# ====================================
+# Pandas- series,create , manipulate, query,delete
+# =====================================
+
+    data = pd.read_csv(r'C:\Users\sukan\Downloads\Bigmarket.csv', delimiter=',')
+    print(data)
+    print(data.head())
+    print(data[['Month', 'Sales']])
+    print(data.iloc[1])
+    print(data[2:6])
+    print(data[2:6]['Store'])
+    print(data.iloc[1]['Store'])
+    print(data[data.Sales > 40000])     #filter
+    print(data[(data.Sales > 40000) & (data.Month == 'Feb')])
+    print(data.sort_values('Sales'))
+    print(data.sort_values('Sales', ascending=False))
+    print(data.sort_values('Sales', ascending=False).iloc[:3])
+    print(data.sort_values(['Store','Sales']))
+
+    dict1 ={'Month': ['Jun','Jun','Jun','Jun','Jun'],
+           'Store': ['A','B','C','D','E'],
+           'Sales': [67889,3400,45000,23000,56899]
+           }
+    new_data = pd.DataFrame(dict1)
+    print(new_data)
+
+    print(data.append(new_data))
+    print(data.append(new_data, ignore_index=True))
+    print(pd.concat([data,new_data], ignore_index=True))
+
+    State1 =['Alaska', 'California', 'Texas', 'Montana', 'Las']
+    Statedic = {'State':State1*8}
+    new_col = pd.DataFrame(Statedic)
+    print(pd.concat([data,new_col], axis=1))
+
+    print(data['Sales'].sum())
+    print(data['Sales'].mean())
+    print(data['Sales'].mean())
+    print(data['Month'].value_counts())
+
+    data['Sales'] = data['Sales'].replace([26451],50000)
+    print(data['Sales'])
+    print(data[data.Sales == 50000])
+
+    #drop is used to delete
+
+    data = data.rename(columns={'Store':'Store1'})
+    print(data.head())
